@@ -117,7 +117,9 @@ async function login(req, res) {
       return res.status(400).send("Required fields can't be empty");
     }
 
-    let student = await Students.findOne({ email });
+    let student = await Students.findOne({
+      where:{ email }
+    });
     if(!student) {
       return res.status(404).send("Email doesn't exist");
     }
