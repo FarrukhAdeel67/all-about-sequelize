@@ -41,7 +41,7 @@ async function post(req, res) {
     console.log({student})
   } catch (err) {
     console.log(err);
-    res.status(500).send("Something went wrong!");
+    res.status(500).send("Something went wrong....");
   }
 }
 
