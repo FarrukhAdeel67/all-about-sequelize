@@ -57,9 +57,7 @@ async function getAll(req, res) {
 async function getSingle(req, res) {
   try {
     const { studentId } = req.params;
-    const student = await Students.findOne({
-      where: { id: studentId },
-    });
+    const student = await Students.findByPk(studentId);
     res.status(200).send({ student });
   } catch (err) {
     console.log(err);
