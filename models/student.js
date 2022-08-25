@@ -2,7 +2,7 @@ const moment = require("moment");
 const sequelize = require("./index");
 const {DataTypes} = require('sequelize');
 const tablename = 'students';
-const Students =  sequelize.define("students",{
+const Students =  sequelize.define(tablename,{
     id: {
         type:DataTypes.INTEGER,
         primaryKey:true,
