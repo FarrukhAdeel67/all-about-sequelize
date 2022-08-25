@@ -2,6 +2,7 @@ const Sequelize = require("sequelize");
 const Students = require("../models/student");
 const sequelize = require("../models/index");
 const moment = require("moment");
+//this is to create a table 
 // async function createtable(req,res){
 //   sequelize
 //   .sync({force:true})
@@ -15,7 +16,7 @@ const moment = require("moment");
 //     })
 //   })
 // }
-
+//post api function
 async function post(req, res) {
   try {
     const { name, email, writer } = req.body;
@@ -43,7 +44,7 @@ async function post(req, res) {
     res.status(500).send("Something went wrong....");
   }
 }
-
+//get all the data from the database
 async function getAll(req, res) {
   try {
     const students = await Students.findAll();
