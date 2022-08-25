@@ -12,7 +12,8 @@ module.exports = {
         type:DataTypes.INTEGER,
         primaryKey:true,
         allowNull:false,
-        autoIncrement: true//if id doesnt have value then throw error.
+        autoIncrement: true
+        //if id doesnt have value then throw error.
     },
     name:{
         type:DataTypes.STRING,
@@ -31,10 +32,8 @@ module.exports = {
         allowNull:false
     }
     })
-    
     await queryInterface.sequelize.query(`INSERT INTO teachers (name, email,createdAt, updatedAt) VALUES ('${name}', '${email}', ${createdAt},${updatedAt})` )
   },
-
   async down (queryInterface, Sequelize) {
     await queryInterface.dropTable('teachers')
   }
