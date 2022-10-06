@@ -1,41 +1,42 @@
 const moment = require("moment");
 const sequelize = require("./index");
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const tablename = 'students';
-const Students =  sequelize.define(tablename,{
+
+const Students = sequelize.define(tablename, {
     id: {
-        type:DataTypes.INTEGER,
-        primaryKey:true,
-        allowNull:false,
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
         autoIncrement: true//if id doesnt have value then throw error.
     },
-    name:{
-        type:DataTypes.STRING,
-        allowNull:false
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    writer:{
-        type:DataTypes.STRING,
-        allowNull:false
+    writer: {
+        type: DataTypes.STRING,
+        allowNull: false
 
     },
-    createdAt:{
-        type:DataTypes.INTEGER,
-        allowNull:false
+    createdAt: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
-    updatedAt:{
-        type:DataTypes.INTEGER,
-        allowNull:false
+    updatedAt: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 });
-Students.beforeCreate(function (student){
+Students.beforeCreate(function (student) {
     student.dataValues.createdAt = moment().unix();
     student.dataValues.updatedAt = moment().unix();
 })
-Students.afterUpdate(function (student){
+Students.afterUpdate(function (student) {
     student.dataValues.updatedAt = moment().unix();
 })
 module.exports = Students;
