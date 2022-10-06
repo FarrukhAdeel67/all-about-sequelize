@@ -4,6 +4,7 @@ const router = express.Router();
 const studentController = require("../controllers/student")
 
 router.post("/", studentController.post);
+
 //router.get('/createtable', studentController.createtable);
 
 router.get("/", studentController.getAll);
